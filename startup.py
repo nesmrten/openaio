@@ -2,6 +2,7 @@ import os
 import argparse
 from chatbot_ai import ChatbotAI
 
+print(os.path.exists('models/'))
 def main():
     # Create instance of ChatbotAI class
     chatbot = ChatbotAI()
