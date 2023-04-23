@@ -1,0 +1,12 @@
+class Decoder(nn.Module):
+    def __init__(self, vocab_size, embedding_size, hidden_size, num_layers=1):
+        super(Decoder, self).__init__()
+        self.embedding = nn.Embedding(vocab_size, embedding_size)
+        self.gru = nn.GRU(embedding_size, hidden_size, num_layers=num_layers, batch_first=True)
+        self.fc = nn.Linear(hidden_size, vocab_size)
+
+    def forward(self, x, hidden):
+        x = self.embedding(x)
+        output, hidden = self.gru(x, hidden)
+        output = self.fc(output)
+        return output, hidden
