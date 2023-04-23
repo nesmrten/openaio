@@ -1,12 +1,1 @@
-[    {        "input_text": [0.0, 1.0, 0.0, 1.0, 0.0],
-        "target_text": [0.0, 0.0, 1.0, 0.0, 1.0]
-    },
-    {
-        "input_text": [1.0, 0.0, 1.0, 0.0, 1.0],
-        "target_text": [1.0, 1.0, 0.0, 1.0, 0.0]
-    },
-    {
-        "input_text": [1.0, 1.0, 0.0, 0.0, 1.0],
-        "target_text": [0.0, 1.0, 1.0, 0.0, 0.0]
-    }
-]
+[  {    "input": "hello",    "output": "hi there!"  },  {    "input": "how are you doing?",    "output": "I'm doing great. How about you?"  },  {    "input": "I'm not feeling well",    "output": "Oh no! What's wrong?"  },  {    "input": "I have a headache",    "output": "I'm sorry to hear that. Have you taken anything for it?"  },  {    "input": "yes, I took some ibuprofen",    "output": "That should help. Rest and plenty of fluids are also important."  }]

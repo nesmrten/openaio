@@ -2,15 +2,19 @@ import torch.utils.data as data
 import json
 
 
-class ChatDataset(data.Dataset):
+class ChatDataset(Dataset):
     def __init__(self, conversations):
         self.conversations = conversations
-        self.input_size = None
-        self.output_size = None
-        self.build_vocab()
+        self.tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')
+
+    def __len__(self):
+        return len(self.conversations)
 
     def __getitem__(self, index):
-        conversation = self.conversations[index]
-        input_text = conversation["input_text"]
-        target_text = conversation["target_text"]
-        input_tensor = torch.Long
+        input_text = self.conversations[index]["input"]
+        target_text = self.conversations[index]["output"]
+
+        input_ids = torch.tensor(self.tokenizer.encode(input_text, add_special_tokens=True))
+        target_ids = torch.tensor(self.tokenizer.encode(target_text, add_special_tokens=True))
+
+        return input_ids, target_ids
